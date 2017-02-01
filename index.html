@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Manager</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Main styles -->
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrapper">
+    <section class="full-screen">
+
+        <div class="overlay"></div>
+
+        <div class="full-screen-content">
+            <div class="container header">
+                <h1>Hi! <br/> I'm a user manager!</h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-add-users">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Let's try: add new user</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="add-new-users">
+                        <form id="add-users">
+                            <div class="form-group">
+                                <input type="text" id="firstName" class="form" name="firstName" placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="lastName" class="form" name="lastName" placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="login" class="form" name="login" placeholder="Login">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="password" class="form" name="password" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" class="form" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label><input id="role" type="checkbox" class="form-checkbox">Admin</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label><input id="status" type="checkbox" class="form-checkbox">Active</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button>Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="list-of-users">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>List of users</h2>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="table-responsive">
+                            <table id="mytable" class="table table-bordred table-striped">
+                                <thead>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form id="edit-users">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span
+                                        class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                <h4 class="modal-title custom_align">Edit user info</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <input type="text" id="edit-firstName" class="form-control" name="edit-firstName">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="edit-lastName" class="form-control" name="edit-lastName">
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" id="edit-email" class="form-control" name="edit-email">
+                                </div>
+                                <div class="form-group">
+                                    <label><input id="edit-role" type="checkbox" class="form-checkbox">Admin</label>
+                                </div>
+                                <div class="form-group">
+                                    <label><input id="edit-status" type="checkbox" class="form-checkbox">Active</label>
+                                </div>
+                            </div>
+                            <div class="modal-footer ">
+                                <button class="btn btn-warning btn-lg" style="width: 100%;">
+                                    Update
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span
+                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                            <h4 class="modal-title custom_align">Delete this user?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-danger">
+                                Are you sure you want to delete this User?
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn button-delete delete">
+                                Delete 
+                            </button>
+                            <button type="button" class="btn btn-default button-no-delete" data-dismiss="modal">
+                                No
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+
+<!-- Scripts -->
+<script src="js/vendors/bootstrap.min.js"></script>
+<script src="js/app/app.js"></script>
+</body>
+</html>

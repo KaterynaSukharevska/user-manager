@@ -1,0 +1,266 @@
+/*---------------------------------------------------------------------------
+    Project:        User manager
+    Version:        1.0
+    Author:         Kateryna Sukharevska
+------------------------------------------------------------------------------*/
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: #60606e;;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   My styles
+   ========================================================================== */
+
+body {
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.full-screen {
+    background: url("../img/macbook.jpg") no-repeat fixed;
+    background-size: cover;
+    height: 100vh;
+
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(65, 73, 82, 0.65);
+    z-index: 1;
+}
+
+.full-screen .full-screen-content {
+    z-index: 1000;
+    position: relative;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: normal;
+}
+
+h2 {
+    margin-bottom: 65px;
+    color: #311d10;
+    font-weight: 400;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/*Section add users*/
+.form-add-users {
+    margin: 50px 0;
+}
+
+.add-new-users {
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px 0;
+    border-radius: 3px;
+}
+
+.add-new-users input.form {
+    width: 50%;
+    height: 50px;
+    padding: 0 15px;
+    border: thin solid #dad4d4;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.add-new-users input.form:focus {
+    outline: none;
+    -webkit-appearance: none;
+    box-shadow: 5px 3px 8px #968576;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-new-users input:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+.add-new-users input:focus::-moz-placeholder {
+    color: transparent
+}
+
+.add-new-users input:focus:-moz-placeholder {
+    color: transparent
+}
+
+.add-new-users input:focus:-ms-input-placeholder {
+    color: transparent
+}
+
+.add-new-users .checkbox {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 5px;
+}
+
+.add-new-users button {
+    width: 100px;
+    height: 42px;
+    background: #58483e;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-new-users button:hover {
+    box-shadow: 5px 3px 8px #523923;
+    transition: all 0.3s ease-in-out;
+}
+
+/*Section list of users*/
+#mytable {
+    margin-bottom: 100px;
+}
+
+#mytable thead tr {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #655c5c;
+}
+
+#mytable tr td {
+    padding: 10px 8px;
+    text-transform: initial;
+}
+
+.button-edit, .button-delete {
+    border: none;
+    height: 28px;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-edit:hover, .button-delete:hover {
+    box-shadow: 5px 3px 8px #a29582;
+}
+
+.button-delete {
+    width: 70px;
+    height: 28px;
+    background: rgb(169, 107, 108);
+}
+
+.modal .button-delete:hover {
+    background: rgb(127, 52, 53);
+}
+
+.button-no-delete {
+    width: 70px;
+    height: 28px;
+}
+
+.modal .button-delete, .button-no-delete {
+    padding: 0;
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal .button-delete:hover, .button-no-delete:hover {
+    box-shadow: 5px 3px 8px #523923;
+    transition: all 0.3s ease-in-out;
+}
+
+.button-edit {
+    width: 50px;
+    background: rgb(145, 154, 98);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: transparent;
+}
+
+.alert-danger {
+    text-align: center;
+}
+
+/*Edit user form*/
+
+#edit-users input[type="checkbox"] {
+    margin-right: 5px;
+}
