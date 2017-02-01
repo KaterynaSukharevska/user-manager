@@ -192,8 +192,15 @@ h2 {
     transition: all 0.3s ease-in-out;
 }
 
+.no-users {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+    font-size: 20px;
+}
+
 /*Section list of users*/
-#mytable {
+.table-responsive {
     margin-bottom: 100px;
 }
 

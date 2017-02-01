@@ -78,6 +78,7 @@
         /********** Show ************/
 
         function addUserToList(user) {
+            $(".no-users").remove();
             $('#mytable tr:last').after('<tr></tr>');
 
             for (var val in user) {
@@ -103,7 +104,10 @@
 
         var usersFromMemory = App.getAllUsers('users');
         if (usersFromMemory && Object.keys(usersFromMemory).length >= 0) {
+            $(".no-users").remove();
             showUsers(usersFromMemory);
+        } else {
+            $(".table-responsive").append($("<div>").addClass("no-users").append($("<p>").text("no users in memory")));
         }
 
         $(".show-users").on('click', function () {
