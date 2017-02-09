@@ -103,7 +103,9 @@
         }
 
         var usersFromMemory = App.getAllUsers('users');
-        if (usersFromMemory && Object.keys(usersFromMemory).length >= 0) {
+        var countTr = $('#mytable tr');
+        
+        if (countTr.length > 1) {
             $(".no-users").remove();
             showUsers(usersFromMemory);
         } else {
@@ -141,7 +143,11 @@
 
             $("#add-users").trigger('reset');
 
-            addUserToList(user);
+            if(user.status == "active") {
+                addUserToList(user);
+            } else {
+                alert('You have set inactive status. User is not on the list')
+            }
 
             event.preventDefault();
         });
@@ -149,10 +155,10 @@
 
         /********** Edit ************/
 
-        $('.button-edit').on('click', function () {
+        $('body').on('click', 'button.button-edit', function () {
             var email = this.getAttribute('data-email');
             var user = App.getUserByEmail(email);
-            var editForm = $("#edit");
+            var editForm = $("#edit-users");
 
             editForm.find('#edit-firstName').val(user.firstName);
             editForm.find('#edit-lastName').val(user.lastName);
@@ -179,10 +185,19 @@
                     u.status = user.status;
                     App.saveToStorage('users', users);
                 }
+                
             }
 
-            // @TODO
-            // Insert changes
+            var btn = $("#mytable").find(".button-edit[data-email='" + user.email + "']");
+            var tr = btn.closest("tr");
+            tr.find('td:first').text(user.firstName);
+            tr.find('td:nth-child(2)').text(user.lastName);
+            tr.find('td:nth-child(4)').text(user.role);
+            tr.find('td:nth-child(5)').text(user.status);
+
+            if(user.status == 'inactive') {
+                tr.hide();
+            }
 
             $("#edit-users").trigger('reset');
             $('#edit').modal('toggle');
@@ -192,7 +207,7 @@
 
         /********** Delete ************/
 
-        $('.button-delete').on('click', function () {
+        $('body').on('click', '.button-delete', function () {
             var email = this.getAttribute('data-email');
             $("#delete").find('.button-delete').attr('data-email', email);
         });
@@ -205,6 +220,12 @@
 
             var btn = $("#mytable").find(".button-delete[data-email='" + email + "']");
             btn.closest("tr").css("display", "none");
+
+            //var countTr = $('#mytable tr');
+            //
+            //if (countTr) {
+            //    $(".table-responsive").append($("<div>").addClass("no-users").append($("<p>").text("no users in memory")));
+            //}
         });
 
     });
